@@ -1,10 +1,10 @@
 using MagicVilla_VillaApi.Data;
 using MagicVilla_VillaApi.Models;
 using MagicVilla_VillaApi.Models.DTO;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MagicVilla_VillaApi.Controllers;
-
 
 [Route("api/VillaApi")]
 [ApiController] //IT WILL VALIDATE MODEL STATES AND GIVE BAD REQUESTS IF FAILED
@@ -61,7 +61,6 @@ public class VillaApiController: ControllerBase
     }
     
     
-    
     [HttpDelete]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -108,12 +107,43 @@ public class VillaApiController: ControllerBase
        
         return NoContent();
         
-       
-        
-        
-
         
     }
+    
+    [HttpPatch("{id:int}",Name="UpdateVillaPartial")]
+    
+    public IActionResult UpdateVillaPartial(int id,JsonPatchDocument<VillaDTO> patchDoc)
+    {
+        if (id == 0)
+        {
+            return BadRequest();
+            
+        }
+
+        var villa = VillaDataStore.villalist.FirstOrDefault(v => v.Id == id);
+
+        if (villa == null)
+        {
+            return BadRequest();
+        }
+        patchDoc.ApplyTo(villa);
+
+        return NoContent();
+
+
+
+
+    }
+    
+    
+   
+    
+    
+    
+    
+ 
+   
+   
     
     
    
