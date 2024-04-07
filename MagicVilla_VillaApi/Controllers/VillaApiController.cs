@@ -9,7 +9,13 @@ namespace MagicVilla_VillaApi.Controllers;
 [Route("api/VillaApi")]
 [ApiController] //IT WILL VALIDATE MODEL STATES AND GIVE BAD REQUESTS IF FAILED
 public class VillaApiController: ControllerBase
+
 {
+    public ILogger<VillaApiController> _logger;
+    public VillaApiController(ILogger<VillaApiController> logger)
+    {
+        var _logger = logger;
+    }
 
     [HttpGet]
     public ActionResult<IEnumerable<VillaDTO>> GetVilla()
@@ -25,6 +31,9 @@ public class VillaApiController: ControllerBase
     {
         if (id == 0)
         {
+            _logger.LogError("error getting info with id 0");
+            
+            
             return BadRequest();
         }
         var villa=VillaDataStore.villalist.FirstOrDefault(v => v.Id == id);
