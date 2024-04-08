@@ -1,0 +1,126 @@
+2024-04-08 13:54:03.718 +06:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-04-08 13:54:03.769 +06:00 [DBG] Hosting starting
+2024-04-08 13:54:03.794 +06:00 [INF] Now listening on: http://localhost:5003
+2024-04-08 13:54:03.794 +06:00 [DBG] Loaded hosting startup assembly MagicVilla_VillaApi
+2024-04-08 13:54:03.794 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-08 13:54:03.794 +06:00 [INF] Hosting environment: Development
+2024-04-08 13:54:03.794 +06:00 [INF] Content root path: /Users/adnanhowlader/Desktop/asp net projects/MagicVilla/MagicVilla_VillaApi
+2024-04-08 13:54:03.794 +06:00 [DBG] Hosting started
+2024-04-08 13:54:04.224 +06:00 [DBG] Connection id "0HN2NK47P0V8L" received FIN.
+2024-04-08 13:54:04.228 +06:00 [DBG] Connection id "0HN2NK47P0V8L" accepted.
+2024-04-08 13:54:04.229 +06:00 [DBG] Connection id "0HN2NK47P0V8L" started.
+2024-04-08 13:54:04.235 +06:00 [DBG] Connection id "0HN2NK47P0V8L" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 13:54:04.241 +06:00 [DBG] Connection id "0HN2NK47P0V8L" disconnecting.
+2024-04-08 13:54:04.246 +06:00 [DBG] Connection id "0HN2NK47P0V8L" stopped.
+2024-04-08 13:54:04.401 +06:00 [DBG] Connection id "0HN2NK47P0V8M" accepted.
+2024-04-08 13:54:04.402 +06:00 [DBG] Connection id "0HN2NK47P0V8M" started.
+2024-04-08 13:54:04.423 +06:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger - -
+2024-04-08 13:54:04.425 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-04-08 13:54:04.438 +06:00 [DBG] No candidates found for the request path '/swagger'
+2024-04-08 13:54:04.439 +06:00 [DBG] Request did not match any endpoints
+2024-04-08 13:54:04.455 +06:00 [DBG] Connection id "0HN2NK47P0V8M" completed keep alive response.
+2024-04-08 13:54:04.456 +06:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger - - - 301 0 - 34.2102ms
+2024-04-08 13:54:04.466 +06:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/index.html - -
+2024-04-08 13:54:04.466 +06:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2024-04-08 13:54:04.466 +06:00 [DBG] Request did not match any endpoints
+2024-04-08 13:54:04.521 +06:00 [DBG] Connection id "0HN2NK47P0V8M" completed keep alive response.
+2024-04-08 13:54:04.522 +06:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/index.html - - - 200 - text/html;charset=utf-8 55.9775ms
+2024-04-08 13:54:04.565 +06:00 [DBG] Connection id "0HN2NK47P0V8N" accepted.
+2024-04-08 13:54:04.565 +06:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui.css - -
+2024-04-08 13:54:04.566 +06:00 [DBG] No candidates found for the request path '/swagger/swagger-ui.css'
+2024-04-08 13:54:04.566 +06:00 [DBG] Request did not match any endpoints
+2024-04-08 13:54:04.566 +06:00 [DBG] Connection id "0HN2NK47P0V8N" started.
+2024-04-08 13:54:04.566 +06:00 [DBG] Connection id "0HN2NK47P0V8O" accepted.
+2024-04-08 13:54:04.566 +06:00 [DBG] Connection id "0HN2NK47P0V8O" started.
+2024-04-08 13:54:04.566 +06:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui-bundle.js - -
+2024-04-08 13:54:04.566 +06:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js'
+2024-04-08 13:54:04.566 +06:00 [DBG] Request did not match any endpoints
+2024-04-08 13:54:04.566 +06:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui-standalone-preset.js - -
+2024-04-08 13:54:04.566 +06:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js'
+2024-04-08 13:54:04.566 +06:00 [DBG] Request did not match any endpoints
+2024-04-08 13:54:04.577 +06:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-04-08 13:54:04.577 +06:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-04-08 13:54:04.578 +06:00 [DBG] Connection id "0HN2NK47P0V8O" completed keep alive response.
+2024-04-08 13:54:04.578 +06:00 [DBG] Connection id "0HN2NK47P0V8M" completed keep alive response.
+2024-04-08 13:54:04.578 +06:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui-standalone-preset.js - - - 200 312163 text/javascript 12.0810ms
+2024-04-08 13:54:04.578 +06:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui.css - - - 200 144929 text/css 12.8042ms
+2024-04-08 13:54:04.587 +06:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-04-08 13:54:04.587 +06:00 [DBG] Connection id "0HN2NK47P0V8N" completed keep alive response.
+2024-04-08 13:54:04.588 +06:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 21.7644ms
+2024-04-08 13:54:04.718 +06:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/v1/swagger.json - -
+2024-04-08 13:54:04.718 +06:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2024-04-08 13:54:04.718 +06:00 [DBG] Request did not match any endpoints
+2024-04-08 13:54:04.808 +06:00 [DBG] Connection id "0HN2NK47P0V8N" completed keep alive response.
+2024-04-08 13:54:04.808 +06:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 90.5509ms
+2024-04-08 13:54:14.255 +06:00 [DBG] Connection id "0HN2NK47P0V8P" accepted.
+2024-04-08 13:54:14.256 +06:00 [DBG] Connection id "0HN2NK47P0V8P" started.
+2024-04-08 13:54:14.257 +06:00 [DBG] Connection id "0HN2NK47P0V8P" received FIN.
+2024-04-08 13:54:14.257 +06:00 [DBG] Connection id "0HN2NK47P0V8Q" accepted.
+2024-04-08 13:54:14.257 +06:00 [DBG] Connection id "0HN2NK47P0V8Q" started.
+2024-04-08 13:54:14.257 +06:00 [DBG] Connection id "0HN2NK47P0V8P" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 13:54:14.258 +06:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/api/VillaApi/ - -
+2024-04-08 13:54:14.259 +06:00 [DBG] Connection id "0HN2NK47P0V8P" disconnecting.
+2024-04-08 13:54:14.261 +06:00 [DBG] Connection id "0HN2NK47P0V8P" stopped.
+2024-04-08 13:54:14.264 +06:00 [DBG] 1 candidate(s) found for the request path '/api/VillaApi/'
+2024-04-08 13:54:14.267 +06:00 [DBG] Endpoint 'MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi)' with route pattern 'api/VillaApi' is valid for the request path '/api/VillaApi/'
+2024-04-08 13:54:14.267 +06:00 [DBG] Request matched endpoint 'MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi)'
+2024-04-08 13:54:14.268 +06:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-04-08 13:54:14.269 +06:00 [WRN] Failed to determine the https port for redirect.
+2024-04-08 13:54:14.271 +06:00 [INF] Executing endpoint 'MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi)'
+2024-04-08 13:54:14.282 +06:00 [INF] Route matched with {action = "GetVilla", controller = "VillaApi"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[MagicVilla_VillaApi.Models.DTO.VillaDTO]] GetVilla() on controller MagicVilla_VillaApi.Controllers.VillaApiController (MagicVilla_VillaApi).
+2024-04-08 13:54:14.283 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-04-08 13:54:14.283 +06:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-04-08 13:54:14.283 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-04-08 13:54:14.283 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-04-08 13:54:14.283 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-04-08 13:54:14.285 +06:00 [DBG] Executing controller factory for controller MagicVilla_VillaApi.Controllers.VillaApiController (MagicVilla_VillaApi)
+2024-04-08 13:54:14.285 +06:00 [DBG] Executed controller factory for controller MagicVilla_VillaApi.Controllers.VillaApiController (MagicVilla_VillaApi)
+2024-04-08 13:54:14.288 +06:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.XmlDataContractSerializerOutputFormatter"]
+2024-04-08 13:54:14.290 +06:00 [DBG] No information found on request to perform content negotiation.
+2024-04-08 13:54:14.290 +06:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-04-08 13:54:14.290 +06:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2024-04-08 13:54:14.290 +06:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-04-08 13:54:14.291 +06:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MagicVilla_VillaApi.Models.DTO.VillaDTO, MagicVilla_VillaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-04-08 13:54:14.372 +06:00 [INF] Executed action MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi) in 86.7499ms
+2024-04-08 13:54:14.372 +06:00 [INF] Executed endpoint 'MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi)'
+2024-04-08 13:54:14.372 +06:00 [DBG] Connection id "0HN2NK47P0V8Q" completed keep alive response.
+2024-04-08 13:54:14.372 +06:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/api/VillaApi/ - - - 200 70 application/json;+charset=utf-8 114.4578ms
+2024-04-08 13:54:32.486 +06:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/api/VillaApi/ - -
+2024-04-08 13:54:32.486 +06:00 [DBG] 1 candidate(s) found for the request path '/api/VillaApi/'
+2024-04-08 13:54:32.486 +06:00 [DBG] Endpoint 'MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi)' with route pattern 'api/VillaApi' is valid for the request path '/api/VillaApi/'
+2024-04-08 13:54:32.486 +06:00 [DBG] Request matched endpoint 'MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi)'
+2024-04-08 13:54:32.487 +06:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-04-08 13:54:32.487 +06:00 [INF] Executing endpoint 'MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi)'
+2024-04-08 13:54:32.487 +06:00 [INF] Route matched with {action = "GetVilla", controller = "VillaApi"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[MagicVilla_VillaApi.Models.DTO.VillaDTO]] GetVilla() on controller MagicVilla_VillaApi.Controllers.VillaApiController (MagicVilla_VillaApi).
+2024-04-08 13:54:32.487 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-04-08 13:54:32.487 +06:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-04-08 13:54:32.487 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-04-08 13:54:32.487 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-04-08 13:54:32.487 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-04-08 13:54:32.487 +06:00 [DBG] Executing controller factory for controller MagicVilla_VillaApi.Controllers.VillaApiController (MagicVilla_VillaApi)
+2024-04-08 13:54:32.487 +06:00 [DBG] Executed controller factory for controller MagicVilla_VillaApi.Controllers.VillaApiController (MagicVilla_VillaApi)
+2024-04-08 13:54:32.488 +06:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.XmlDataContractSerializerOutputFormatter"]
+2024-04-08 13:54:32.488 +06:00 [DBG] No information found on request to perform content negotiation.
+2024-04-08 13:54:32.488 +06:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-04-08 13:54:32.488 +06:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2024-04-08 13:54:32.488 +06:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-04-08 13:54:32.488 +06:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MagicVilla_VillaApi.Models.DTO.VillaDTO, MagicVilla_VillaApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-04-08 13:54:32.489 +06:00 [INF] Executed action MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi) in 1.129ms
+2024-04-08 13:54:32.489 +06:00 [INF] Executed endpoint 'MagicVilla_VillaApi.Controllers.VillaApiController.GetVilla (MagicVilla_VillaApi)'
+2024-04-08 13:54:32.489 +06:00 [DBG] Connection id "0HN2NK47P0V8Q" completed keep alive response.
+2024-04-08 13:54:32.489 +06:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/api/VillaApi/ - - - 200 70 application/json;+charset=utf-8 3.2218ms
+2024-04-08 13:54:47.898 +06:00 [INF] Application is shutting down...
+2024-04-08 13:54:47.900 +06:00 [DBG] Hosting stopping
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8M" disconnecting.
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8N" disconnecting.
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8M" stopped.
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8N" stopped.
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8Q" disconnecting.
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8O" disconnecting.
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8O" stopped.
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8Q" stopped.
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8M" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8O" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8Q" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 13:54:47.910 +06:00 [DBG] Connection id "0HN2NK47P0V8N" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 13:54:47.914 +06:00 [DBG] Hosting stopped

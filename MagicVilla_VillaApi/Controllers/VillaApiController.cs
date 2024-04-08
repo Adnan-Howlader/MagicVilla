@@ -11,6 +11,7 @@ namespace MagicVilla_VillaApi.Controllers;
 public class VillaApiController: ControllerBase
 
 {
+
     public ILogger<VillaApiController> _logger;
     public VillaApiController(ILogger<VillaApiController> logger)
     {
@@ -31,7 +32,7 @@ public class VillaApiController: ControllerBase
     {
         if (id == 0)
         {
-            _logger.LogError("error getting info with id 0");
+           
             
             
             return BadRequest();
