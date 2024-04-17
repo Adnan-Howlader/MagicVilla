@@ -13,15 +13,21 @@ public class VillaApiController: ControllerBase
 {
 
     public ILogger<VillaApiController> _logger;
-    public VillaApiController(ILogger<VillaApiController> logger)
+    
+    
+    private readonly ApplicationDbContext _db;
+    
+    public VillaApiController(ILogger<VillaApiController> logger,ApplicationDbContext db)
     {
-        var _logger = logger;
+        _logger = logger;
+        _db = db;
     }
+   
 
     [HttpGet]
     public ActionResult<IEnumerable<VillaDTO>> GetVilla()
     {
-        return Ok(VillaDataStore.villalist);
+        return Ok(_db.Villas.ToList());
     }
     
     [HttpGet("{id:int}")]
@@ -32,12 +38,9 @@ public class VillaApiController: ControllerBase
     {
         if (id == 0)
         {
-           
-            
-            
             return BadRequest();
         }
-        var villa=VillaDataStore.villalist.FirstOrDefault(v => v.Id == id);
+        var villa=_db.Villas.FirstOrDefault(v => v.Id == id);
         if (villa==null)
         {
             return NotFound();
@@ -51,27 +54,38 @@ public class VillaApiController: ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<VillaDTO> CreateVilla([FromBody]VillaDTO villaDtO)
+    public ActionResult<VillaDTO> CreateVilla(Villa villa)
     {
         
-
-        if (villaDtO.Id > 0)
+        
+        if (villa.Id != 0)
         {
             return StatusCode(StatusCodes.Status500InternalServerError);
             
         }
-        villaDtO.Id=VillaDataStore.villalist.OrderByDescending(v => v.Id).FirstOrDefault().Id + 1;
         
-        VillaDataStore.villalist.Add(villaDtO);
+  
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+       
         
         
-        return CreatedAtAction(nameof(GetVilla),new {id=villaDtO.Id},villaDtO);
+        
+        
+        _db.Villas.Add(villa);
+        
+        _db.SaveChanges();
+        
+        
+        return StatusCode(StatusCodes.Status201Created,villa);
         
 
     }
     
     
-    [HttpDelete]
+    [HttpDelete("{id:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -82,12 +96,13 @@ public class VillaApiController: ControllerBase
             return BadRequest();
         }
         
-        var villa = VillaDataStore.villalist.FirstOrDefault(v => v.Id == id);
+        var villa = _db.Villas.FirstOrDefault(v => v.Id == id);
         if (villa == null)
         {
             return NotFound();
         }
-        VillaDataStore.villalist.Remove(villa);
+        _db.Villas.Remove(villa);
+        _db.SaveChanges();
         return NoContent();
     }
 
@@ -95,26 +110,27 @@ public class VillaApiController: ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     
-    public IActionResult UpdateVilla([FromBody]VillaDTO villaDtO)
+    public IActionResult UpdateVilla([FromBody]Villa updatedVilla)
     {
-        if (villaDtO.Id== 0)
+        if (updatedVilla.Id== 0)
         {
             return BadRequest();
 
         }
-        var villa=VillaDataStore.villalist.FirstOrDefault(v => v.Id == villaDtO.Id);
+        var villa=_db.Villas.FirstOrDefault(v => v.Id == updatedVilla.Id);
 
         if (villa == null)
         {
             return NotFound();
         }
+
+        
+        
+        _db.Villas.Update(updatedVilla);
+        _db.SaveChanges();
         
       
         
-        VillaDataStore.villalist.Remove(villa);
-        VillaDataStore.villalist.Add(villaDtO);
-        
-       
         return NoContent();
         
         
@@ -122,7 +138,7 @@ public class VillaApiController: ControllerBase
     
     [HttpPatch("{id:int}",Name="UpdateVillaPartial")]
     
-    public IActionResult UpdateVillaPartial(int id,JsonPatchDocument<VillaDTO> patchDoc)
+    public IActionResult UpdateVillaPartial(int id,JsonPatchDocument<Villa> patchDoc)
     {
         if (id == 0)
         {
@@ -130,14 +146,16 @@ public class VillaApiController: ControllerBase
             
         }
 
-        var villa = VillaDataStore.villalist.FirstOrDefault(v => v.Id == id);
+        var villa = _db.Villas.FirstOrDefault(v => v.Id == id);
 
         if (villa == null)
         {
             return BadRequest();
         }
+        
         patchDoc.ApplyTo(villa);
-
+        
+        
         return NoContent();
 
 
