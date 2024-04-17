@@ -12,7 +12,7 @@ public class ApplicationDbContext:DbContext
 
 
     }
-    DbSet<Villa> Villas { get; set; } 
+    public DbSet<Villa> Villas { get; set; } 
     
     //add some instances to villa table
     protected override void OnModelCreating(ModelBuilder modelBuilder)
