@@ -70,8 +70,9 @@ public class VillaApiController : ControllerBase
             occupancy = villaCreateDto.occupancy,
             imageurl = villaCreateDto.imageurl,
             amenity = villaCreateDto.amenity,
-            CreatedDate = villaCreateDto.CreatedDate,
-            UpdateDate = villaCreateDto.UpdateDate
+            CreatedDate = DateTime.Now,
+            UpdateDate = DateTime.Now
+          
         };
 
       
@@ -108,19 +109,39 @@ public class VillaApiController : ControllerBase
     [HttpPut]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult UpdateVilla([FromBody] Villa updatedVilla)
+    public IActionResult UpdateVilla([FromBody] VillaUpdateDTO villaUpdateDto)
     {
-        if (updatedVilla.Id == 0)
+        if (villaUpdateDto.Id == 0)
         {
             return BadRequest();
         }
+        
+        var isValid=TryValidateModel(villaUpdateDto);
+        
+        if (!isValid)
+        {
+            return BadRequest(ModelState);
+        }
 
-        var villa = _db.Villas.FirstOrDefault(v => v.Id == updatedVilla.Id);
+        var villa = _db.Villas.FirstOrDefault(v => v.Id == villaUpdateDto.Id);
 
         if (villa == null)
         {
             return NotFound();
         }
+        var updatedVilla=new Villa
+        {
+            Id = villaUpdateDto.Id,
+            Name = villaUpdateDto.Name,
+            Details = villaUpdateDto.Details,
+            rate = villaUpdateDto.rate,
+            sqft = villaUpdateDto.sqft,
+            occupancy = villaUpdateDto.occupancy,
+            imageurl = villaUpdateDto.imageurl,
+            amenity = villaUpdateDto.amenity,
+            CreatedDate = villa.CreatedDate,
+            UpdateDate = DateTime.Now
+        };
 
         _db.Villas.Update(updatedVilla);
         _db.SaveChanges();
