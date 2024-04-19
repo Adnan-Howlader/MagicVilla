@@ -51,17 +51,30 @@ public class VillaApiController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<VillaDTO> CreateVilla(Villa villa)
+    public ActionResult<VillaDTO> CreateVilla(VillaCreateDTO villaCreateDto)
     {
-        if (villa.Id != 0)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError);
-        }
-
-        if (!ModelState.IsValid)
+        var isValid=TryValidateModel(villaCreateDto);
+        
+        if (!isValid)
         {
             return BadRequest(ModelState);
         }
+       
+        var villa = new Villa
+        {
+            Id = 0,
+            Name = villaCreateDto.Name,
+            Details = villaCreateDto.Details,
+            rate = villaCreateDto.rate,
+            sqft = villaCreateDto.sqft,
+            occupancy = villaCreateDto.occupancy,
+            imageurl = villaCreateDto.imageurl,
+            amenity = villaCreateDto.amenity,
+            CreatedDate = villaCreateDto.CreatedDate,
+            UpdateDate = villaCreateDto.UpdateDate
+        };
+
+      
 
         _db.Villas.Add(villa);
 
