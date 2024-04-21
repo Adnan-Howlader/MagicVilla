@@ -1,9 +1,11 @@
+using AutoMapper;
 using MagicVilla_VillaApi.Data;
 using MagicVilla_VillaApi.Models;
 using MagicVilla_VillaApi.Models.DTO;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace MagicVilla_VillaApi.Controllers;
 
@@ -15,17 +17,24 @@ public class VillaApiController : ControllerBase
     public ILogger<VillaApiController> _logger;
 
     private readonly ApplicationDbContext _db;
+    
+    private readonly IMapper _mapper;
 
-    public VillaApiController(ILogger<VillaApiController> logger, ApplicationDbContext db)
+    public VillaApiController(ILogger<VillaApiController> logger, ApplicationDbContext db,IMapper mapper)
     {
         _logger = logger;
         _db = db;
+        _mapper = mapper;
     }
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<VillaDTO>>> GetVilla()
     {
-        return Ok(await _db.Villas.ToListAsync());
+       IEnumerable<Villa> villalist = await _db.Villas.ToListAsync();
+       
+       IEnumerable<VillaDTO> villaDtoList = _mapper.Map<IEnumerable<VillaDTO>>(villalist);
+       
+        return Ok(villaDtoList);
     }
 
     [HttpGet("{id:int}")]
@@ -44,8 +53,10 @@ public class VillaApiController : ControllerBase
         {
             return NotFound();
         }
+        
+        VillaDTO villaDto = _mapper.Map<VillaDTO>(villa);
 
-        return Ok(villa);
+        return Ok(villaDto);
     }
 
     [HttpPost]
@@ -60,29 +71,26 @@ public class VillaApiController : ControllerBase
         {
             return BadRequest(ModelState);
         }
+        
+      
        
-        var villa = new Villa
-        {
-            Id = 0,
-            Name = villaCreateDto.Name,
-            Details = villaCreateDto.Details,
-            rate = villaCreateDto.rate,
-            sqft = villaCreateDto.sqft,
-            occupancy = villaCreateDto.occupancy,
-            imageurl = villaCreateDto.imageurl,
-            amenity = villaCreateDto.amenity,
-            CreatedDate = DateTime.Now,
-            UpdateDate = DateTime.Now
-          
-        };
+     
+        
+        Villa villa=_mapper.Map<Villa>(villaCreateDto);
+
+        villa.Id = 0;
+        villa.CreatedDate = DateTime.Now;
+        villa.UpdateDate = DateTime.Now;
 
       
 
        _db.Villas.Add(villa);
 
         await _db.SaveChangesAsync();
+        
+        VillaDTO villaDto = _mapper.Map<VillaDTO>(villa);
 
-        return StatusCode(StatusCodes.Status201Created, villa);
+        return StatusCode(StatusCodes.Status201Created, villaDto);
     }
 
     [HttpDelete]
@@ -130,19 +138,9 @@ public class VillaApiController : ControllerBase
         {
             return NotFound();
         }
-        var updatedVilla=new Villa
-        {
-            Id = villaUpdateDto.Id,
-            Name = villaUpdateDto.Name,
-            Details = villaUpdateDto.Details,
-            rate = villaUpdateDto.rate,
-            sqft = villaUpdateDto.sqft,
-            occupancy = villaUpdateDto.occupancy,
-            imageurl = villaUpdateDto.imageurl,
-            amenity = villaUpdateDto.amenity,
-            CreatedDate = villa.CreatedDate,
-            UpdateDate = DateTime.Now
-        };
+   
+        
+        Villa updatedVilla = _mapper.Map<Villa>(villaUpdateDto);
 
         _db.Villas.Update(updatedVilla);
         await _db.SaveChangesAsync();

@@ -1,3 +1,5 @@
+using AutoMapper;
+using MagicVilla_VillaApi;
 using MagicVilla_VillaApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -26,6 +28,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSerilog();
+
+builder.Services.AddAutoMapper(typeof(MappingConfig));
+
+
 
 var app = builder.Build();
 
