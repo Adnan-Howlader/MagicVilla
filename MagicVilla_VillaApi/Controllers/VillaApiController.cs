@@ -3,6 +3,7 @@ using MagicVilla_VillaApi.Models;
 using MagicVilla_VillaApi.Models.DTO;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MagicVilla_VillaApi.Controllers;
 
@@ -22,23 +23,23 @@ public class VillaApiController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<VillaDTO>> GetVilla()
+    public async Task<ActionResult<IEnumerable<VillaDTO>>> GetVilla()
     {
-        return Ok(_db.Villas.ToList());
+        return Ok(await _db.Villas.ToListAsync());
     }
 
     [HttpGet("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public ActionResult<VillaDTO> GetVilla(int id)
+    public async Task<ActionResult<VillaDTO>> GetVilla(int id)
     {
         if (id == 0)
         {
             return BadRequest();
         }
 
-        var villa = _db.Villas.FirstOrDefault(v => v.Id == id);
+        var villa =await  _db.Villas.FirstOrDefaultAsync(v => v.Id == id);
         if (villa == null)
         {
             return NotFound();
@@ -51,7 +52,7 @@ public class VillaApiController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<VillaDTO> CreateVilla(VillaCreateDTO villaCreateDto)
+    public async Task<ActionResult<VillaDTO>> CreateVilla(VillaCreateDTO villaCreateDto)
     {
         var isValid=TryValidateModel(villaCreateDto);
         
@@ -77,9 +78,9 @@ public class VillaApiController : ControllerBase
 
       
 
-        _db.Villas.Add(villa);
+       _db.Villas.Add(villa);
 
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
 
         return StatusCode(StatusCodes.Status201Created, villa);
     }
@@ -88,7 +89,7 @@ public class VillaApiController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult DeleteVilla(int id)
+    public async Task<IActionResult> DeleteVilla(int id)
     {
         if (id == 0)
         {
@@ -102,14 +103,14 @@ public class VillaApiController : ControllerBase
         }
 
         _db.Villas.Remove(villa);
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
         return NoContent();
     }
 
     [HttpPut]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult UpdateVilla([FromBody] VillaUpdateDTO villaUpdateDto)
+    public async Task<IActionResult> UpdateVilla([FromBody] VillaUpdateDTO villaUpdateDto)
     {
         if (villaUpdateDto.Id == 0)
         {
@@ -123,7 +124,7 @@ public class VillaApiController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        var villa = _db.Villas.FirstOrDefault(v => v.Id == villaUpdateDto.Id);
+        var villa = await _db.Villas.FirstOrDefaultAsync(v => v.Id == villaUpdateDto.Id);
 
         if (villa == null)
         {
@@ -144,15 +145,15 @@ public class VillaApiController : ControllerBase
         };
 
         _db.Villas.Update(updatedVilla);
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
 
         return NoContent();
     }
 
     [HttpPatch(Name = "UpdateVillaPartial")]
-    public IActionResult UpdateVillaPartial(int id, [FromBody]JsonPatchDocument<Villa> patchDoc)
+    public async Task<IActionResult> UpdateVillaPartial(int id, [FromBody]JsonPatchDocument<Villa> patchDoc)
     {
-        var villa = _db.Villas.FirstOrDefault(v => v.Id == id);
+        var villa = await _db.Villas.FirstOrDefaultAsync(v => v.Id == id);
         
         if (villa == null)
         {
@@ -169,7 +170,7 @@ public class VillaApiController : ControllerBase
         }
 
         _db.Update(villa);
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
 
         return Ok(villa);
 
